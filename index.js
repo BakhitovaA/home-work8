@@ -15,18 +15,9 @@ http.listen(port, function () {
 
 var countUsers = 0;
 	
-//Подключение нового пользователя
 io.on('connection', function (socket) {
 	console.log('user connected');
 	var addUser = false;
-	// Новое сообщение 
-	socket.on('newMessage', function (dataText) {
-		socket.broadcast.emit('newMessage', {
-			userName: socket.userName,
-			message: dataText
-		});
-	});
-
 	// Подключение нового пользователя
 	socket.on('addUser', function (userName) {
 		console.log('addUser');
@@ -41,6 +32,15 @@ io.on('connection', function (socket) {
 		socket.broadcast.emit('joinUser', {
 			userName: socket.userName,
 			countUsers: countUsers
+		});
+	});
+	
+	// Новое сообщение 
+	socket.on('newMessage', function (dataText) {
+		console.log('newMessage');
+		socket.broadcast.emit('newMessage', {
+			userName: socket.userName,
+			message: dataText
 		});
 	});
 
