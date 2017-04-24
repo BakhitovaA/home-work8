@@ -1,0 +1,13 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Anastasiya Morina",
+  "dependencies": {
+    "express": "4.13.4"
+  },
+  "license": "ISC",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
