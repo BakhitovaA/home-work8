@@ -8,7 +8,7 @@ var port = process.env.PORT || 3000;
 app.use(express.static(__dirname + '/public'));
 
 http.listen(port, function () {
-  console.log('Подключение к порту %d', port);
+  	console.log('Подключение к порту %d', port);
 });
 
 // Комната
@@ -25,7 +25,7 @@ io.on('connection', function (socket) {
 			userName: socket.userName,
 			message: dataText
 		});
-});
+	});
 
 	// Подключение нового пользователя
 	socket.on('addUser', function (userName) {
